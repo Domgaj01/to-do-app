@@ -1,25 +1,17 @@
 import { todos, Todo } from './todos';
 import { renderTodos } from './todoRender';
 
-// Add a new todo
-export const addTodo = (text: string): void => {
+export const addTodo = (text: string): Todo => {
   const newTodo: Todo = {
     id: Date.now(),
     text,
-    completed: false,
+    completed: false
   };
   todos.push(newTodo);
   renderTodos();
+  return newTodo; // <-- return it
 };
 
-// Remove a todo by id
-export const removeTodo = (id: number): void => {
-  const index = todos.findIndex(todo => todo.id === id);
-  if (index !== -1) {
-    todos.splice(index, 1);
-    renderTodos();
-  }
-};
 
 // Toggle completed status
 export const toggleCompleted = (id: number): void => {
@@ -45,6 +37,15 @@ export const editTodo = (id: number, newText: string): void => {
   const todo = todos.find(t => t.id === id);
   if (todo) {
     todo.text = newText;
+    renderTodos();
+  }
+};
+
+// Remove a todo by ID
+export const removeTodo = (id: number): void => {
+  const index = todos.findIndex(t => t.id === id);
+  if (index !== -1) {
+    todos.splice(index, 1);
     renderTodos();
   }
 };
