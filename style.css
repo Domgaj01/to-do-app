@@ -93,3 +93,13 @@ h1 {
   margin-top: 5px;
   display: none;
 }
+
+.clear-completed{
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}

@@ -1,8 +1,8 @@
-// todoActions.ts
-import { Todo, todos } from './todos';
+import { todos, Todo } from './todos';
 import { renderTodos } from './todoRender';
 
-export const addTodo = (text: string): Todo => {
+// Add a new todo
+export const addTodo = (text: string): void => {
   const newTodo: Todo = {
     id: Date.now(),
     text,
@@ -10,9 +10,9 @@ export const addTodo = (text: string): Todo => {
   };
   todos.push(newTodo);
   renderTodos();
-  return newTodo;
 };
 
+// Remove a todo by id
 export const removeTodo = (id: number): void => {
   const index = todos.findIndex(todo => todo.id === id);
   if (index !== -1) {
@@ -21,13 +21,30 @@ export const removeTodo = (id: number): void => {
   }
 };
 
-export const editTodo = (id: number, newText?: string): void => {
-  const todo = todos.find(todo => todo.id === id);
-  if (!todo) return;
+// Toggle completed status
+export const toggleCompleted = (id: number): void => {
+  const todo = todos.find(t => t.id === id);
+  if (todo) {
+    todo.completed = !todo.completed;
+    renderTodos();
+  }
+};
 
-  const text = newText ?? prompt('Edit todo', todo.text);
-  if (text && text.trim() !== '') {
-    todo.text = text.trim();
+// Clear all completed todos
+export const clearCompletedTodos = (): void => {
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+    }
+  }
+  renderTodos();
+};
+
+// Edit a todo (existing)
+export const editTodo = (id: number, newText: string): void => {
+  const todo = todos.find(t => t.id === id);
+  if (todo) {
+    todo.text = newText;
     renderTodos();
   }
 };
