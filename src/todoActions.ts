@@ -70,3 +70,16 @@ export const duplicateTodo = (id: number): void => {
     renderTodos();
   }
 };
+
+export const copyTodoText = (id: number): void => {
+  const todo = todos.find(t => t.id === id);
+  if (todo) {
+    navigator.clipboard.writeText(todo.text)
+      .then(() => {
+        alert(`Copied: "${todo.text}"`);
+      })
+      .catch(() => {
+        alert('Failed to copy text');
+      });
+  }
+};
