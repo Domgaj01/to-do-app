@@ -9,9 +9,8 @@ export const addTodo = (text: string): Todo => {
   };
   todos.push(newTodo);
   renderTodos();
-  return newTodo; // <-- return it
+  return newTodo;
 };
-
 
 // Toggle completed status
 export const toggleCompleted = (id: number): void => {
@@ -46,6 +45,14 @@ export const removeTodo = (id: number): void => {
   const index = todos.findIndex(t => t.id === id);
   if (index !== -1) {
     todos.splice(index, 1);
+    renderTodos();
+  }
+};
+
+export const toggleFavorite = (id: number): void => {
+  const todo = todos.find(t => t.id === id);
+  if (todo) {
+    todo.favorite = !todo.favorite;
     renderTodos();
   }
 };

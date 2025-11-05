@@ -73,18 +73,17 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
-.todo-item button {
+/* .todo-item button {
   border: none;
   background: #dc3545;
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
-}
-
+} */
 
 .input-error {
   border: 2px solid red;
-  background-color: #ffe6e6; /* Optional: Light red background to indicate error */
+  background-color: #ffe6e6;
 }
 
 #error-message {
@@ -99,6 +98,36 @@ h1 {
   margin-left: 10px;
   border: none;
   background: #28a745;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.toggle-btn{
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.edit-btn{
+  border: none;
+  background: #3498db;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.remove-btn{
+  border: none;
+  background: #dc3545;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.favorite-btn{
+  border: none;
+  background: #dc9935;
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
