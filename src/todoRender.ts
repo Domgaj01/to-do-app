@@ -1,5 +1,5 @@
   import { todos } from './todos';
-  import { removeTodo, editTodo, toggleCompleted, toggleFavorite} from './todoActions';
+  import { removeTodo, editTodo, toggleCompleted, toggleFavorite, duplicateTodo} from './todoActions';
 
   const todoList = document.getElementById('todo-list') as HTMLUListElement;
 
@@ -16,6 +16,7 @@
         <div>
           <button class="toggle-btn">Toggle</button>
           <button class="edit-btn">Edit</button>
+          <button class="duplicate-btn">Duplicate</button>
           <button class="remove-btn">Remove</button>
           <button class="favorite-btn">${todo.favorite ? '★' : '☆'}</button>
         </div>
@@ -35,6 +36,9 @@
     
       const removeBtn = li.querySelector('.remove-btn') as HTMLButtonElement;
       removeBtn.addEventListener('click', () => removeTodo(todo.id));
+
+      const duplicateBtn = li.querySelector('.duplicate-btn') as HTMLButtonElement;
+duplicateBtn.addEventListener('click', () => duplicateTodo(todo.id));
     
       todoList.appendChild(li);
     });

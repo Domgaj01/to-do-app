@@ -132,3 +132,11 @@ h1 {
   border-radius: 3px;
   cursor: pointer;
 }
+
+.duplicate-btn {
+  border: none;
+  background: #17a2b8;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}

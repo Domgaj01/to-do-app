@@ -56,3 +56,17 @@ export const toggleFavorite = (id: number): void => {
     renderTodos();
   }
 };
+
+export const duplicateTodo = (id: number): void => {
+  const todo = todos.find(t => t.id === id);
+  if (todo) {
+    const newTodo: Todo = {
+      id: Date.now(),
+      text: `${todo.text} (copy)`,
+      completed: false,
+      favorite: todo.favorite || false
+    };
+    todos.push(newTodo);
+    renderTodos();
+  }
+};
