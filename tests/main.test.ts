@@ -3,6 +3,9 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { todos } from '../src/todos';
 import { addTodo, removeTodo, editTodo } from '../src/todoActions';
 
+fixture('Todo App Tests')
+  .page('https://dominikgraphic.com/');
+
 describe('Todo App', () => {
   beforeEach(() => {
     todos.length = 0; // reset todos
