@@ -1,4 +1,4 @@
-// main.test.ts
+/// <reference types="testcafe" />
 import { describe, it, expect, beforeEach } from 'vitest';
 import { todos } from '../src/todos';
 import { addTodo, removeTodo, editTodo } from '../src/todoActions';
