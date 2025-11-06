@@ -46,6 +46,5 @@ jobs:
       - name: Install Chromium
         run: apt-get install -y chromium
 
-      - name: Run E2E tests
-        run: testcafe "chromium --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --disable-setuid-sandbox --disable-software-rasterizer" tests/e2e.test.ts
-
+      - name: Run tests
+        run: testcafe chromium:headless tests/e2e.test.ts
