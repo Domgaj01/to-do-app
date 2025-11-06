@@ -29,14 +29,14 @@ jobs:
         run: npm run build
 
       - name: FTP delivery
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ${{ vars.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
           server-dir: /public_html/
-      
+          
       - name: Install Testcafe
         run: npm install -g testcafe
 
@@ -54,3 +54,4 @@ jobs:
         with:
           name: dist
           path: dist/
+        
