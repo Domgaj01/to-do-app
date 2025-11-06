@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # alebo '20' podľa projektu
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -41,14 +41,14 @@ jobs:
           local-dir: dist/
           server-dir: /public_html/
 
-      - name: Install TestCafe
-        run: npm install -g testcafe
+      - name: Install Testcafe 
+        run: npm install -g testcafe 
 
-      - name: Run tests
+      - name: Update APT 
+        run: apt-get update 
+
+      - name: Install Chromium 
+        run: apt-get install -y chromium 
+        
+      - name: Run tests 
         run: testcafe chromium:headless test/*.js
-
-      - name: Store artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
