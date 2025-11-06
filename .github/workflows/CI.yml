@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - develop
-      - 'feature/**' 
+      - 'feature/**'
   pull_request:
     branches:
       - main
@@ -28,6 +28,9 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: Run unit tests
+        run: npm run test
+
       - name: FTP delivery
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
@@ -36,19 +39,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
           server-dir: /public_html/
-      
-      - name: Install TestCafe
-        run: npm install -g testcafe
-
-      - name: Update APT
-        run: apt-get update
-      
-      - name: Install Chromium
-        run: apt-get install -y chromium
-
-     - name: Run tests
-      run: testcafe chromium:headless tests/*.test.ts
-
-
-
-
