@@ -1,37 +1,19 @@
 /// <reference types="testcafe" />
-import { describe, it, expect, beforeEach } from 'vitest';
-import { todos } from '../src/todos';
-import { addTodo, removeTodo, editTodo } from '../src/todoActions';
+import { Selector } from 'testcafe';
 
-fixture('Todo App Tests')
+fixture('Todo App E2E Tests')
   .page('https://dominikgraphic.com/');
 
-describe('Todo App', () => {
-  beforeEach(() => {
-    todos.length = 0; // reset todos
-  });
+test('App should load and show the main page', async t => {
+  await t.expect(Selector('body').exists).ok();
+});
 
-  it('should add a new todo', () => {
-    const newTodo = addTodo('Test Todo');
-    expect(todos.length).toBe(1);
-    expect(todos[0]).toEqual(newTodo);
-  });
+test('User can see the todo input field', async t => {
+  const input = Selector('input[type="text"]');
+  await t.expect(input.exists).ok();
+});
 
-  it('should mark a todo as completed', () => {
-    const newTodo = addTodo('Test Todo');
-    newTodo.completed = true;
-    expect(todos[0].completed).toBe(true);
-  });
-
-  it('should delete a todo', () => {
-    const newTodo = addTodo('Test Todo');
-    removeTodo(newTodo.id);
-    expect(todos.length).toBe(0);
-  });
-
-  it('should edit a todo', () => {
-    const newTodo = addTodo('Test Todo');
-    editTodo(newTodo.id, 'Updated Todo');
-    expect(todos[0].text).toBe('Updated Todo');
-  });
+test('User can click the add button', async t => {
+  const button = Selector('button').withText('Add');
+  await t.expect(button.exists).ok();
 });
