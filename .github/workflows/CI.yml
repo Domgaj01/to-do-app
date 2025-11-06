@@ -46,13 +46,8 @@ jobs:
       - name: Install Chromium
         run: apt-get install -y chromium
 
-      - name: Run E2E tests
-        run: |
-          testcafe "chrome:headless" tests/**/*.ts \
-          || testcafe "/usr/bin/chromium-browser:headless" tests/**/*.ts \
-          || testcafe "/usr/bin/chromium:headless" tests/**/*.ts
-
-
+     - name: Run tests
+      run: testcafe chromium:headless tests/*.test.ts
 
 
 
