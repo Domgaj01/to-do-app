@@ -1,10 +1,7 @@
 import { Selector } from "testcafe";
 
 fixture('Todo App Tests')
-  .page('https://dominikgraphic.com/')
-  .beforeEach(async t => {
-    await t.wait(5000);
-  });
+  .page('https://dominikgraphic.com/');
 
   test('App should load and show the main page', async t => {
     await t.wait(3000);
