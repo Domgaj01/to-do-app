@@ -1,5 +1,4 @@
-/// <reference types="testcafe" />
-import { Selector } from 'testcafe';
+import { Selector } from "testcafe";
 
 fixture('Todo App E2E Tests')
   .page('https://dominikgraphic.com/');
