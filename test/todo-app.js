@@ -1,7 +1,7 @@
 import { Selector } from "testcafe";
 
-fixture('Todo App E2E Tests')
-  .page('http://localhost:5173/');
+fixture('Todo App Tests')
+  .page('https://dominikgraphic.com/');
 
 test('User can add a todo', async t => {
   const input = Selector('input[type="text"]');
