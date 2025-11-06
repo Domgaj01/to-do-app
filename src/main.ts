@@ -3,12 +3,14 @@ import '../style.css';
 import { addTodo, clearCompletedTodos } from './todoActions';
 import { renderTodos } from './todoRender';
 import { initializeColorPicker } from './colorPicker';
+import { loadTodos } from './todos';
 
 // DOM references
 const todoInput = document.getElementById('todo-input') as HTMLInputElement;
 const todoForm = document.querySelector('.todo-form') as HTMLFormElement;
 const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
 const clearCompletedBtn = document.getElementById('clear-completed') as HTMLButtonElement;
+const favoriteFilter = document.getElementById('show-favorites') as HTMLInputElement;
 
 // Form submission
 todoForm.addEventListener('submit', (event: Event) => {
@@ -30,8 +32,16 @@ clearCompletedBtn.addEventListener('click', () => {
   clearCompletedTodos();
 });
 
-// Initial render + color picker
+if (favoriteFilter) {
+  favoriteFilter.addEventListener('change', (e) => {
+    const target = e.target as HTMLInputElement;
+    renderTodos(target.checked);
+  });
+}
+
+// Initial render + color picker + load saved todos
 document.addEventListener('DOMContentLoaded', () => {
+  loadTodos();
   renderTodos();
   initializeColorPicker();
 });

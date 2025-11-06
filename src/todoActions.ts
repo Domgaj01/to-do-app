@@ -1,4 +1,4 @@
-import { todos, Todo } from './todos';
+import { todos, Todo, saveTodos } from './todos';
 import { renderTodos } from './todoRender';
 
 export const addTodo = (text: string): Todo => {
@@ -8,6 +8,7 @@ export const addTodo = (text: string): Todo => {
     completed: false
   };
   todos.push(newTodo);
+  saveTodos();
   renderTodos();
   return newTodo;
 };
@@ -17,6 +18,7 @@ export const toggleCompleted = (id: number): void => {
   const todo = todos.find(t => t.id === id);
   if (todo) {
     todo.completed = !todo.completed;
+    saveTodos();
     renderTodos();
   }
 };
@@ -28,6 +30,7 @@ export const clearCompletedTodos = (): void => {
       todos.splice(i, 1);
     }
   }
+  saveTodos();
   renderTodos();
 };
 
@@ -53,6 +56,7 @@ export const toggleFavorite = (id: number): void => {
   const todo = todos.find(t => t.id === id);
   if (todo) {
     todo.favorite = !todo.favorite;
+    saveTodos();
     renderTodos();
   }
 };
@@ -67,6 +71,7 @@ export const duplicateTodo = (id: number): void => {
       favorite: todo.favorite || false
     };
     todos.push(newTodo);
+    saveTodos();
     renderTodos();
   }
 };

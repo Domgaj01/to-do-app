@@ -158,3 +158,23 @@ h1 {
   border-radius: 3px;
   cursor: pointer;
 }
+
+.favorite-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-top: 8px;
+  margin-left: 4px;
+  font-size: 0.95rem;
+}
+
+/* Checkbox styling */
+.favorite-filter input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #dc9935;
+  cursor: pointer;
+}
+
+
+
