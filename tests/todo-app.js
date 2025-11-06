@@ -1,7 +1,7 @@
 import { Selector } from "testcafe";
 
 fixture('Todo App E2E Tests')
-  .page('https://dominikgraphic.com/');
+  .page('http://localhost:5173/');
 
 test('App should load and show the main page', async t => {
   await t.expect(Selector('body').exists).ok();
