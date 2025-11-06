@@ -45,10 +45,10 @@ jobs:
         run: npm install -g testcafe 
 
       - name: Update APT 
-        run: apt-get update 
+        run: sudo apt-get update 
 
       - name: Install Chromium 
-        run: apt-get install -y chromium 
-        
+        run: sudo apt-get install -y chromium-browser
+
       - name: Run tests 
         run: testcafe chromium:headless test/*.js
