@@ -1,5 +1,5 @@
 // main.ts
-import '../style.css';
+import './style.css';
 import { addTodo, clearCompletedTodos } from './todoActions';
 import { renderTodos } from './todoRender';
 import { initializeColorPicker } from './colorPicker';
