@@ -46,5 +46,6 @@ jobs:
       - name: Install Chromium 
         run: apt-get install -y chromium
 
-      - name: Run tests 
-        run: testcafe chromium:headless test/*
+      - name: Run tests
+        run: testcafe "chrome:headless --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-setuid-sandbox" test/*
+
