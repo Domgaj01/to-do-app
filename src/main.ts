@@ -12,6 +12,7 @@ const errorMessage = document.getElementById('error-message') as HTMLParagraphEl
 const clearCompletedBtn = document.getElementById('clear-completed') as HTMLButtonElement;
 const favoriteFilter = document.getElementById('show-favorites') as HTMLInputElement;
 
+
 // Form submission
 todoForm.addEventListener('submit', (event: Event) => {
   event.preventDefault();
