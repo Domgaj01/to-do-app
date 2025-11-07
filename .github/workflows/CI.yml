@@ -54,7 +54,7 @@ jobs:
 
   deployment:
     needs: integration-delivery
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: Live
     steps:
       - name: Load artifacts
@@ -62,7 +62,7 @@ jobs:
         with:
           name: dist
           path: dist/
-          
+
       - name: FTP deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
