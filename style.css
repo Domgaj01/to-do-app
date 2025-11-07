@@ -97,7 +97,7 @@ h1 {
 }
 
 #error-message {
-  color: red;
+  color: rgb(242, 7, 7);
   font-size: 0.9em;
   margin-top: 5px;
   display: none;
@@ -168,11 +168,9 @@ h1 {
   margin-left: 4px;
   font-size: 0.95rem;
 }
-
-/* Checkbox styling */
 .favorite-filter input[type="checkbox"] {
   transform: scale(1.2);
-  accent-color: #dc9935;
+  accent-color: #de9931;
   cursor: pointer;
 }
 
