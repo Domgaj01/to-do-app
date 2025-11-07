@@ -69,5 +69,5 @@ jobs:
           server: ${{ vars.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: live/todo #live.dominikgraphics.com/todo
+          server-dir: /public_html/
           local-dir: dist/
