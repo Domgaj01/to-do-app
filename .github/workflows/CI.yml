@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: test/todo #test.dominikgraphics.com/todo
+          server-dir: /public_html/test/
 
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
